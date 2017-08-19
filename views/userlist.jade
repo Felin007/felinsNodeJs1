@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1.
+        User List
+    ul
+        each user, i in userlist
+            li
+                a(href="mailto:#{user.email}")= user.username
+
+    h2.
+        new User
+    div
+        a(href="\\newUser") 新建用户
