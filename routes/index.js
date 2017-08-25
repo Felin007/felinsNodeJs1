@@ -10,6 +10,10 @@ router.get('/helloExpress', function(req, res, next) {
     res.render('helloExpress', { title: 'Express' });
 });
 
+router.get('/home', function(req, res, next) {
+    res.render('home', { title: 'HOME PAGE' });
+});
+
 router.get('/userlist', function(req, res) {
     var db = req.db;
     var collection = db.get('user');
