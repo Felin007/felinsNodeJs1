@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var compression = require('compression');
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
@@ -13,7 +15,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/nodetest');
 
 var app = express();
-
+app.use(compression());
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
