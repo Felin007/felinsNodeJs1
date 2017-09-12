@@ -24,6 +24,14 @@ router.get('/userlist', function(req, res) {
     });
 });
 
+router.get('/api/userlist', function(req, res) {
+    var db = req.db;
+    var collection = db.get('user');
+    collection.find({},{},function(e,docs){
+        res.json(docs);
+    });
+});
+
 router.get('/newUser', function(req, res) {
     res.render('newUser', { title: 'Add New User' });
 });
